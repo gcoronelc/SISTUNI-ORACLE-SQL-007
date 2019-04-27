@@ -6,4 +6,13 @@ CLASE 01
 - Herramientas
 - Conexión
 - Conexión Remota
+- Crear un esquema
+- Crear esquemas ejemplos: EUREKA, RECURSOS, EDUCA
+- Consultas Básicas
+- Filtros
+
+CLASE 02
+=========================================
+- Grupos
+- Multitablas
 
