@@ -94,6 +94,13 @@ on  e.iddepartamento = v1.iddepartamento
 and e.sueldo > v1.sueldo_prom;
 
 
+/*
+Tarea 01
+Se necesita saber quien o quienes son los empleados
+que tienen el mayor salario por departamento.
+Esquema: RECURSOS
+*/
+
 
 
 

@@ -1,0 +1,17 @@
+--TAREA01
+--Se necesita saber quien o quienes son los empleados que 
+-- tienen el mayor salario por departamento (RECURSOS)
+
+with
+v1 as(
+    select iddepartamento, max(x.sueldo) max_sueldo
+    from recursos.empleado x
+    group by iddepartamento
+)
+select e.*, round(v1.max_sueldo,2) max_sueldo
+from recursos.empleado e
+join v1 on e.iddepartamento = v1.iddepartamento
+and e.sueldo = v1.max_sueldo;
+
+
+

@@ -1,0 +1,21 @@
+--INSERT
+
+INSERT INTO SCOTT.EMP(EMPNO, ENAME, SAL)
+VALUES( 7777, 'Leonor', 87456 );
+
+SELECT * FROM SCOTT.EMP;
+
+commit;
+
+-- Crear una nuava tabla a partir de SCOTT.EMP
+
+create table SCOTT.EMP2 as
+( select * from SCOTT.EMP where EMPNO > 99999 );
+
+select * from SCOTT.EMP2;
+
+insert into SCOTT.EMP2
+select * from scott.emp where sal > 4500;
+
+
+
