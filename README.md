@@ -103,3 +103,9 @@
 - Seminario Cliente-Servidor 2: https://youtu.be/pFKMMBzdRGY
 - Seminario Cliente-Servidor 3: https://youtu.be/J197QikZYB8
 - Videos de Oracle: https://www.youtube.com/watch?v=0MEcUu_hgBE&list=PLIRq7nByT7aSzE-6pEFHvcl-EsGOx0mPH
+
+
+# OTROS RECURSOS
+
+- https://wwwhatsnew.com/2019/05/02/28-cursos-gratis-para-interesados-en-big-data-y-estadistica/
+

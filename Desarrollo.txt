@@ -11,8 +11,17 @@ CLASE 01
 - Consultas Básicas
 - Filtros
 
+
 CLASE 02
 =========================================
 - Grupos
 - Multitablas
+
+
+CLASE 03
+=========================================
+- Subconsultas
+- 
+
+
 
