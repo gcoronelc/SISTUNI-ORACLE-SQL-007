@@ -21,7 +21,12 @@ CLASE 02
 CLASE 03
 =========================================
 - Subconsultas
-- 
+- Modificando Datos
+- Transacciones
+- Esquemas
+
+
+
 
 
 
