@@ -1,0 +1,80 @@
+-----------------------------------CONSULTAS SIMPLES------------------------------
+
+1 /* Mostrar el cargo y nombre de los responsables de compra de producto */
+SELECT Cargo, Nombre FROM RESPONSABLE;
+
+2 /* Mostrar los articulos de la seccion de ferreteria */
+SELECT * FROM PRODUCTOS WHERE Seccion='FERRETERIA';
+
+3 /* Mostrar todos los articulos que tengan un precio mayor a 30.00 dolares */
+SELECT * FROM PRODUCTOS WHERE Precio >= 30.00;
+
+4 /* Mostrar solo los articulos de procedencia China */
+SELECT * FROM PRODUCTOS WHERE PROCEDENCIA='CHINA';
+
+5 /* Mostrar los articulos que esten entra la fecha 1 de abril y 1 de mayo */
+SELECT * FROM PEDIDOS WHERE FechaPedido BETWEEN '01-04-2019' AND '01-05-2019';
+
+6 /* Mostrar solo los pedidos que se se hayan pagado al contado */
+SELECT * FROM PEDIDOS WHERE FormadePago='Contado';
+
+7 /* Mostrar los articulos que sean chinos y cuyo precio sea menor que 100.00 dolares */
+SELECT * FROM PRODUCTOS WHERE Procedencia='CHINA' AND Precio <=100.00;
+
+8 /* Mostrar todos los productos pagados al contado entre las fechas 10 de abril a 2 de Mayo */
+SELECT * FROM PEDIDOS WHERE FechaPedido BETWEEN '10-04-2019' AND '02-05-2019' AND Formadepago='Contado';
+
+9 /* Mostrar nombre de los responsables cuyo cargo sea administrador.
+SELECT Nombre, Cargo FROM RESPONSABLE WHERE Cargo='Administrador';
+
+10 /* Mostrar solo pedidos cuyo descuento sea del 5.00% */
+SELECT * FROM PEDIDOS WHERE Descuento='5.00%';
+
+-----------------------------------CONSULTAS COMPLEJAS------------------------------
+
+*******CONSULTAS DE AGRUPACION******
+11 /* Realizar una consulta que muestre el promedio de precios de los articulos por seccion.
+SELECT Seccion, AVG(Precio) FROM PRODUCTOS GROUP BY SECCION;    
+
+12 /* Realizar una consulta que muestre la suma de precios de los articulos por seccion. 
+SELECT Seccion, SUM(Precio) FROM PRODUCTOS GROUP BY SECCION;
+
+13 /* Realizar una consulta que muestre el promedio de precios de los articulos cuya seccion sean ferreteria.
+SELECT Seccion, AVG(Precio) FROM PRODUCTOS GROUP BY Seccion HAVING SECCION='FERRETERIA';
+
+14 /* Realizar una consulta que muestre cuantos clientes de la tabla RESPONSABLES tienen cargo de Administrador
+SELECT COUNT(CodigoCliente) FROM RESPONSABLE WHERE Cargo='Administrador';
+SELECT Cargo, COUNT(CodigoCliente) FROM RESPONSABLE WHERE Cargo='Administrador' GROUP BY Cargo; -> 
+
+********CONSULTAS MULTITABLAS********
+15 /* Realizar una consulta que muestre los datos de la tabla RESPONSABLE y PEDIDOS cuya forma de pago sea aplazado.
+SELECT * FROM RESPONSABLE INNER JOIN PEDIDOS ON RESPONSABLE.CodigoCliente=PEDIDOS.CodigoCliente WHERE Formadepago='Aplazado';
+
+16 /* Realizar una consulta que muestre los datos de la tabla RESPONSABLE y PEDIDOS cuyo descuento sea del 5.00%.
+SELECT * FROM RESPONSABLE INNER JOIN PEDIDOS ON RESPONSABLE.CodigoCliente=PEDIDOS.CodigoCliente WHERE Descuento='5.00%';
+
+********SUBCONSULTAS********
+17 /* Realizar una consulta que muestre los articulos de la tabla de productos cuyo precio sea mayor a la media del precio de todos los productos.
+SELECT * FROM PRODUCTOS WHERE Precio >=(SELECT AVG(Precio) FROM PRODUCTOS);
+
+18 /* Realizar una consulta que muestre todos los articulos de la tabla de PRODUCTOS cuyo precio 
+sea superior a la suma de todos los articulos de la seccion Deportes.
+SELECT * FROM PRODUCTOS WHERE Precio > (SELECT SUM(Precio) FROM PRODUCTOS WHERE Seccion='DEPORTES');
+
+19 /* Realizar una consulta que muestre nombre y precio de los articulos de la tabla PRODUCTOS que se hayan pedido 
+mas de 20 unidades en la tabla de PRODUCTOSPEDIDOS
+SELECT NombreArticulo, Precio FROM PRODUCTOS WHERE CodigoArticulo IN (SELECT CodigoArticulo FROM PRODUCTOSPEDIDOS WHERE Unidades>20);
+
+SELECT NombreArticulo, Precio, Unidades FROM PRODUCTOS 
+INNER JOIN PRODUCTOSPEDIDOS ON PRODUCTOS.CodigoArticulo=PRODUCTOSPEDIDOS.CodigoArticulo WHERE Unidades>20; ->Verificar
+
+20 /* Realizar una consulta que muestre el nombre y cargo de la tabla RESPONSABLES que no hayan hecho un pago Aplazado.
+SELECT Nombre, Cargo FROM RESPONSABLE WHERE CodigoCliente NOT IN 
+(SELECT CodigoCliente FROM PEDIDOS WHERE Formadepago='Aplazado');
+
+SELECT Nombre, Cargo, Formadepago FROM RESPONSABLE 
+INNER JOIN PEDIDOS ON RESPONSABLE.CodigoCliente=PEDIDOS.CodigoCliente WHERE NOT Formadepago='Aplazado';->Verificar
+
+
+
+

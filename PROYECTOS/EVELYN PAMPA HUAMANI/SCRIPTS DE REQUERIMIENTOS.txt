@@ -1,0 +1,95 @@
+
+1 fila actualizadas.
+
+
+MAT    MARCA      MODELO        AÑO_FAB
+------ ---------- ---------- ----------
+FD1258 REFAULT    ABN4             2010
+
+
+MAT       AÑO_FAB Primera revision Segunda revision Tercera revision
+------ ---------- ---------------- ---------------- ----------------
+AB1564       1999             2004             2006             2008
+JK3569       2004             2009             2011             2013
+GH1564       2002             2007             2009             2011
+TG4589       2001             2006             2008             2010
+FD5489       2005             2010             2012             2014
+WF4521       2003             2008             2010             2012
+FD1258       2010             2015             2017             2019
+
+7 filas seleccionadas. 
+
+
+IDMEC NOMBRE                    APELLIDO                  PUESTO               ID      HORAS FECHA_RE MAT    IDMEC
+----- ------------------------- ------------------------- -------------------- -- ---------- -------- ------ -----
+001   EDDIE                     REYES                     AMORTIGUADOR         T1          5 17/05/18 AB1564 001  
+002   BRUNO                     RUBIÑOS                   CHASIS               T2          4 18/05/18 JK3569 002  
+002   BRUNO                     RUBIÑOS                   CHASIS               T3          2 18/05/18 GH1564 002  
+003   JORDAN                    ROCCA                     MOTOR                T4          3 25/06/18 TG4589 003  
+004   JEAN                      GAL                       CHAPA                T5          5 26/06/18 FD5489 004  
+005   MARCIO                    FLORES                    AMORTIGUADOR         T6          1 01/07/18 WF4521 005  
+006   HOLTON                    TRAVER                    CHASIS               T7          4 15/07/18 FD1258 006  
+007   WILMER                    PAMPA                     MOTOR                T8          2 27/08/18 GH1564 007  
+008   ANTONY                    ARGUEDAS                  CHAPA                T9          5 16/09/18 JK3569 008  
+
+9 filas seleccionadas. 
+
+
+MARCA      MODELO    
+---------- ----------
+SUZUKI     CLIC      
+REFAULT    NEVER     
+
+
+Numero de puestos
+-----------------
+                4
+
+
+HORAS TRABAJADAS
+----------------
+               6
+
+
+MAX(HORAS)
+----------
+         5
+
+
+ROUND(AVG(HORAS),2)
+-------------------
+               2,67
+
+
+MAT    SUM(HORAS)
+------ ----------
+JK3569          9
+TG4589          3
+GH1564          4
+AB1564          5
+FD1258          4
+FD5489          5
+
+6 filas seleccionadas. 
+
+
+IDMEC Numero de coches
+----- ----------------
+002                  2
+
+
+NOMBRE                   
+-------------------------
+MARCIO
+
+
+MAT   
+------
+TG4589
+GH1564
+
+
+MAT   
+------
+JK3569
+GH1564

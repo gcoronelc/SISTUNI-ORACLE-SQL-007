@@ -1,0 +1,68 @@
+----1. Enlistar los nombres y apellidos de los autores españoles
+select Nombre_autor ||' '|| Apellido_autor
+from prestamo.AUTOR a
+WHERE  a.pais_autor = 'PERU';
+
+---2. Cuantos lectores son  Distrito de sjl 
+
+
+SELECT distrito_lector, COUNT(idlector) as lectores_SJL
+From prestamo.lector 
+WHERE distrito_lector ='sjl'
+group by distrito_lector ;
+
+---3. Mostrar las editoriales agrupados por países. 
+
+SELECT Pais_Editorial, Nombre_Editorial
+FROM prestamo.editorial
+GROUP BY Pais_editorial, Nombre_Editorial;
+
+4. Quiénes se han prestado libro este año.
+SELECT *
+FROM prestamo.LECTOR L JOIN prestamo.PRESTAMO P ON L.idlector=P.idlector
+where Fecha_Prestamo >= TO_DATE('2019-01-01','yyyy-mm-dd');
+
+
+---5. ORDENAR LOS NOMBRES DE LAS CIUDADES CON SUS RESPECTIVO PAISES DE LAS EDITORIALES
+SELECT e.nombre_editorial, e.pais_editorial, e.distrito_editorial
+from PRESTAMO.Editorial E
+order by pais_editorial, distrito_editorial;
+
+--6,. la mayor cantidad de libros prestados
+
+SELECT  max (Cantidad_Libros) FROM prestamo.prestamo;
+
+--7 calcular al edad de los lectores
+
+ select  trunc(months_between(sysdate, to_char(Fec_nac_lector,'dd/mm/yyyy'))/12) as Edad , nombre_lector from PRESTAMO.lector
+---
+
+--COMPLEJAS
+---1. SE DESEA SABER QUE LIBROS han sido prestados por MUJERES DURANTE EL MES DE enero a Marzo  ***/
+SELECT 
+       CONCAT(L.nombre_lector,L.APELLIDO_LECTOR),
+       P.FECHA_PRESTAMO AS FECHA,
+       LI.TITULO AS TITULO,
+       l.genero_lector AS GENERO,
+       p.fecha_prestamo
+FROM PRESTAMO.LECTOR L 
+INNER JOIN PRESTAMO.PRESTAMO P ON (L.IDLECTOR =P.IDLECTOR)
+INNER JOIN PRESTAMO.DETALLE_PRESTAMO DP ON (p.nropres=dp.nropres)
+INNER JOIN PRESTAMO.LIBRO LI ON (dp.idlibro=li.idlibro)
+WHERE  (p.fecha_prestamo between '01/01/2019' and '31/03/2019') and l.genero_lector = 'femenino' ;
+
+--2 2: CREAR UNA VISTA DE LA TABLA AUTORES Y LISTAR LOS APELLIDOS QUE EMPIECEN CON J
+
+CREATE VIEW V_AUTORE_F
+AS
+SELECT *
+FROM PRESTAMO.AUTOR
+WHERE GENERO_AUTOR = 'F'
+--FIN DE CONSULTA
+
+--EN LA VISTA 
+SELECT * 
+FROM V_AUTORE_F
+WHERE APELLIDO_AUTOR LIKE 'J%';
+
+SELECT * FROM PRESTAMO.AUTOR

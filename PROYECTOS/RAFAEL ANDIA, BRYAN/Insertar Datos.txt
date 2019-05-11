@@ -1,0 +1,95 @@
+CREATE TABLE EMPRESA (NombreEmpresa nvarchar2(30) not null, 
+Direccion nvarchar2(20),
+Telefono char(20),
+PRIMARY KEY (NombreEmpresa));
+
+CREATE TABLE DATOS (CodigoCliente varchar2(20) not null,
+DireccionCl nvarchar2(20),
+TelefonoCl char(20), 
+EmailCl nchar(30),
+PRIMARY KEY (CodigoCliente));
+
+CREATE TABLE RESPONSABLE (CodigoCliente varchar2(20) not null ,
+Nombre varchar2(20), 
+Cargo varchar2(20),
+PRIMARY KEY (CodigoCliente));
+
+CREATE TABLE PEDIDOS (CodigoCliente nvarchar2(20) not null,
+FechaPedido date, 
+Formadepago varchar2(10), 
+Descuento nchar(20),
+PRIMARY KEY (CodigoCliente));
+
+CREATE TABLE PRODUCTOS (CodigoArticulo varchar2(20) not null, 
+Seccion varchar2(10), 
+NombreArticulo nvarchar2(20),
+Precio char(20),
+Procedencia varchar2(20),
+PRIMARY KEY (CodigoArticulo));
+
+CREATE TABLE PRODUCTOSPEDIDOS (CodigoArticulo nvarchar2(20) not null,
+NumerodePedido char(10), 
+Unidades char(10));
+
+
+/*EMPRESA*/
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('LACURTIDORA','OLIVARES 03','3639578');
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('LINEA JOVEN','SIERPES 78','3582960');
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('BAZAR EL BARAT','SURCO CDA15','3756251');
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('EL PALACIO DE LA MODA','AV.ARENALES 15','3751256');
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('LA TIENDA ELEGANTE','CHORRILLOS 1540','3754251');
+INSERT INTO EMPRESA ( NombreEmpresa, Direccion, Telefono) VALUES ('FERRETERÍA LIMA','CENTRO CÍVICO 156','3356255');
+
+/*DATOS*/
+INSERT INTO DATOS (CodigoCliente, DireccionCL, TelefonoCl, EmailCl) VALUES ('CT01','PUEBLO LIBRE 152','953756259','jorge.45@gmail.com');
+INSERT INTO DATOS (CodigoCliente, DireccionCL, TelefonoCl, EmailCl) VALUES ('CT02','ZARATE CDA15','921576295','lucho_5@gmail.com');
+INSERT INTO DATOS (CodigoCliente, DireccionCL, TelefonoCl, EmailCl) VALUES ('CT03','AV.ARENALES 1255','923751256','matrix96@gmail.com');
+INSERT INTO DATOS (CodigoCliente, DireccionCL, TelefonoCl, EmailCl) VALUES ('CT04','CENTRO DE LIMA','913756251','salomon_49@gmail.com');
+INSERT INTO DATOS (CodigoCliente, DireccionCL, TelefonoCl, EmailCl) VALUES ('CT05','JR.SAYHUITE 125','933356255','luis_cano@gmail.com');
+
+/*RESPONSABLE*/
+INSERT INTO RESPONSABLE (CodigoCliente, Nombre, Cargo) VALUES ('CT01','JORGE QUIROGA','Administrador');
+INSERT INTO RESPONSABLE (CodigoCliente, Nombre, Cargo) VALUES ('CT02','LUIS PEREZ','Jefe de Planta');
+INSERT INTO RESPONSABLE (CodigoCliente, Nombre, Cargo) VALUES ('CT03','MARIA XIMENA','Recursos Humanos');
+INSERT INTO RESPONSABLE (CodigoCliente, Nombre, Cargo) VALUES ('CT04','SALOMON VANDI','Administrador');
+INSERT INTO RESPONSABLE (CodigoCliente, Nombre, Cargo) VALUES ('CT05','LUIS CANO','Administrador');
+
+/*PEDIDOS*/
+
+INSERT INTO PEDIDOS (CodigoCliente, FechaPedido, FormadePago, Descuento) VALUES ('CT01','21-03-2019','Aplazado','5.00%');
+INSERT INTO PEDIDOS (CodigoCliente, FechaPedido, FormadePago, Descuento) VALUES ('CT02','01-04-2019','Contado','15.00%');
+INSERT INTO PEDIDOS (CodigoCliente, FechaPedido, FormadePago, Descuento) VALUES ('CT03','01-02-2019','Aplazado','7.00%');
+INSERT INTO PEDIDOS (CodigoCliente, FechaPedido, FormadePago, Descuento) VALUES ('CT04','30-03-2019','Aplazado','6.00%');
+INSERT INTO PEDIDOS (CodigoCliente, FechaPedido, FormadePago, Descuento) VALUES ('CT05','01-05-2019','Contado','2.00%');
+
+/*PRODUCTOS*/
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR01','FERRETERIA','DESTORNILLADOR',6.63,'CHINA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR02','CONFECCION','TRAJECABALLERO',284.50,'ITALIA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR03','JUGUETERIA','COCHETELEDIRIGIDO',110.90,'CHINA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR04','DEPORTES','RAQUETA',93.50,'USA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR05','DEPORTES','MANCUERNAS',60.10,'USA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR06','CONFECCION','PANTALON',50.90,'MARRUECOS');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR07','FERRETERIA','TALADRO',65.63,'CHINA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR08','FERRETERIA','MARTILLO',16.63,'CHINA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR09','CONFECCION','BLUSA',16.63,'ITALIA');
+INSERT INTO PRODUCTOS (CodigoArticulo, Seccion, NombreArticulo, Precio, Procedencia) 
+VALUES ('AR10','FERRETERIA','PINTURA',6.00,'CHINA');
+
+/*PRODUCTOSPEDIDOS*/
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR01','1','30');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR04','5','10');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR04','6','7');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR05','1','8');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR05','10','8');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR09','11','150');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR10','5','10');
+INSERT INTO PRODUCTOSPEDIDOS ( CodigoArticulo, NumerodePedido, Unidades) VALUES ('AR10','6','10');
