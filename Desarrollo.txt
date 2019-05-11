@@ -25,9 +25,12 @@ CLASE 03
 - Transacciones
 - Esquemas
 
-- CLASE 04
-============================================
 
+CLASE 04
+==========================================
+- Vistas
+- Actualización de una tabla con datos de motra tabla
+- Tablas particionadas
 
 
 
