@@ -26,6 +26,7 @@
 - Blog: www.desarrollasoftware.com
 - Canal Youtube: https://bit.ly/2BWvikz
 - Correo: gcoronelc@gmail.com
+- UDEMY: https://bit.ly/2VevKC9
 
 # MATERIAL DEL CURSO
 
